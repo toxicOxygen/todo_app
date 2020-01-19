@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}List of todos{% endblock title %}
+
+{% block content %}
+    {% for todo in user.todos.all %}
+        <p>
+            {% if todo.completed %}
+            <a href="{% url 'todo_detail' todo.pk %}" class="btn btn-success">
+                {{todo.title}}
+            </a>
+            {% else %}
+            <a href="{% url 'todo_detail' todo.pk %}" class="btn btn-secondary">
+                {{todo.title}}
+            </a>
+            {% endif %}
+            
+        </p>
+
+    {% empty %}
+        <h2>You have no todos to display</h2>
+        <p class="lead">You can add new todos and they will be displayed here</p>
+    {% endfor %}
+{% endblock content %}

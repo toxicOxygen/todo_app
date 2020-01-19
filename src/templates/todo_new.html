@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}New Todo{% endblock title %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" value="add new todo" class="btn btn-primary" />
+    </form>
+{% endblock content %}

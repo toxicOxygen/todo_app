@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Todo Edit{% endblock title %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" value="save changes" class="btn btn-secondary"/>
+    </form>
+{% endblock content %}
